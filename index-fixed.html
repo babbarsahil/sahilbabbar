@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sahil Babbar — Art Director</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #F6F4F0;
+      --black:   #0D0D0D;
+      --mid:     #7A7A7A;
+      --light:   #C4C0B8;
+      --serif:   'Cormorant Garamond', Georgia, serif;
+      --sans:    'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--black);
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 48px;
+      background: var(--bg);
+      mix-blend-mode: normal;
+    }
+
+    nav .logo {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--black);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 36px;
+    }
+
+    nav ul a {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover { color: var(--black); }
+
+    /* ── HERO ── */
+    #hero {
+      padding-top: 100px;
+      height: 100vh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: calc(100vh - 180px);
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+
+    .hero-caption {
+      padding: 28px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--mid);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    /* ── PROJECTS INDEX ── */
+    #work {
+      padding: 120px 48px 80px;
+    }
+
+    .work-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-top: 1px solid var(--light);
+      padding-top: 20px;
+      margin-bottom: 80px;
+    }
+
+    .work-header h2 {
+      font-family: var(--serif);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .work-header span {
+      font-size: 11px;
+      color: var(--mid);
+      letter-spacing: 0.1em;
+    }
+
+    /* ── PROJECT BLOCK ── */
+    .project {
+      margin-bottom: 140px;
+    }
+
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--light);
+      margin-bottom: 32px;
+    }
+
+    .project-number {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: var(--mid);
+    }
+
+    .project-title {
+      font-family: var(--serif);
+      font-size: clamp(22px, 3.5vw, 42px);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    .project-subtitle {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    .project-desc {
+      max-width: 560px;
+      font-size: 13px;
+      line-height: 1.8;
+      color: #3D3D3D;
+      margin-bottom: 36px;
+    }
+
+    /* ── IMAGE GRIDS ── */
+    .grid-full {
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      margin-bottom: 4px;
+    }
+
+    .grid-full img { width: 100%; height: 100%; object-fit: cover; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4px;
+    }
+
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+
+    .grid-cell {
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .grid-cell.portrait { aspect-ratio: 3/4; }
+    .grid-cell.wide     { aspect-ratio: 16/9; }
+    .grid-cell.square   { aspect-ratio: 1/1; }
+
+    .grid-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .grid-cell:hover img { transform: scale(1.02); }
+
+    /* ── ABOUT ── */
+    #about {
+      padding: 120px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    #about .about-label {
+      border-top: 1px solid var(--light);
+      padding-top: 20px;
+    }
+
+    #about h2 {
+      font-family: var(--serif);
+      font-size: clamp(24px, 3vw, 38px);
+      font-weight: 300;
+      line-height: 1.3;
+      margin-top: 16px;
+    }
+
+    #about .about-body {
+      border-top: 1px solid var(--light);
+      padding-top: 20px;
+    }
+
+    #about p {
+      font-size: 14px;
+      line-height: 1.9;
+      color: #3D3D3D;
+      margin-bottom: 20px;
+    }
+
+    .cv-list {
+      margin-top: 32px;
+    }
+
+    .cv-list .cv-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--light);
+      font-size: 12px;
+    }
+
+    .cv-list .cv-item .role { color: var(--black); }
+    .cv-list .cv-item .year { color: var(--mid); }
+
+    /* ── CONTACT / FOOTER ── */
+    footer {
+      padding: 80px 48px;
+      border-top: 1px solid var(--light);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    footer .contact-block h3 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+    }
+
+    footer .contact-block a {
+      display: block;
+      font-size: 13px;
+      color: var(--mid);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+      margin-bottom: 6px;
+    }
+
+    footer .contact-block a:hover { color: var(--black); }
+
+    footer .footer-name {
+      font-family: var(--serif);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 20px 24px; }
+      nav ul { gap: 20px; }
+      #hero { padding-top: 80px; }
+      .hero-caption { padding: 20px 24px; flex-direction: column; gap: 4px; }
+      #work { padding: 80px 24px 60px; }
+      .project-meta { flex-direction: column; gap: 4px; }
+      #about { padding: 80px 24px; grid-template-columns: 1fr; gap: 40px; }
+      footer { padding: 60px 24px; flex-direction: column; gap: 32px; align-items: flex-start; }
+      .grid-3 { grid-template-columns: 1fr 1fr; }
+      .grid-2col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="logo">Sahil Babbar</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-image">
+      <img src="hero.jpeg" alt="Sahil Babbar — Art Director" />
+    </div>
+    <div class="hero-caption">
+      <h1 class="hero-name">Sahil Babbar</h1>
+      <p class="hero-title">Art Direction &nbsp;&nbsp;·&nbsp;&nbsp; Photography &nbsp;&nbsp;·&nbsp;&nbsp; Creative Direction</p>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+
+    <div class="work-header">
+      <h2>Selected Work</h2>
+      <span>2016 — Present</span>
+    </div>
+
+    <!-- 01 · Charlotte Tilbury -->
+    <div class="project" id="charlotte-tilbury">
+      <div class="project-meta">
+        <span class="project-number">01</span>
+        <span class="project-subtitle">Global 360 Beauty Art Direction</span>
+      </div>
+      <h3 class="project-title">Charlotte Tilbury</h3>
+      <p class="project-desc">
+        Led 360° creative campaigns across product launches and annual brand initiatives, translating house codes into a cohesive, elevated visual language while introducing personal narrative and editorial sensibility. Directed projects from concept through main campaign, e-commerce, and social media. Managed teams of varying sizes, building systems that were both conceptually rigorous and technically precise.
+      </p>
+      <div class="grid-2col">
+        <div class="grid-cell portrait"><img src="ct-1.jpeg" alt="Charlotte Tilbury — Summer 2025 Skincare Campaign" /></div>
+        <div class="grid-cell portrait"><img src="ct-2.jpeg" alt="Charlotte Tilbury — Summer 2026 Unreal Franchise" /></div>
+      </div>
+    </div>
+
+    <!-- 02 · ITOH Menswear -->
+    <div class="project" id="itoh">
+      <div class="project-meta">
+        <span class="project-number">02</span>
+        <span class="project-subtitle">Brand Development &amp; Campaign, S/S 2024</span>
+      </div>
+      <h3 class="project-title">ITOH Menswear</h3>
+      <p class="project-desc">
+        Art-directed the brand development of Indian menswear label ITOH, with a focus on fabric, construction, and fit, informed by Japanese and Indian workwear. Established the brand's visual language and creative strategy, spanning photography, film, set design, graphic design, casting, and brand identity — shaping a restrained, material-led menswear world.
+      </p>
+      <div class="grid-full">
+        <img src="itoh-1.jpeg" alt="ITOH Menswear S/S 2024 Campaign" />
+      </div>
+      <div class="grid-3">
+        <div class="grid-cell"><img src="itoh-4.jpeg" alt="ITOH Campaign" /></div>
+        <div class="grid-cell"><img src="itoh-2.jpeg" alt="ITOH Detail" /></div>
+        <div class="grid-cell"><img src="itoh-3.jpeg" alt="ITOH Detail" /></div>
+      </div>
+    </div>
+
+    <!-- 03 · Burberry -->
+    <div class="project" id="burberry">
+      <div class="project-meta">
+        <span class="project-number">03</span>
+        <span class="project-subtitle">Art Direction for Global Creative, 2016–2018</span>
+      </div>
+      <h3 class="project-title">Burberry</h3>
+      <p class="project-desc">
+        Progressed from Assistant to Junior Art Director, working across main and diffusion campaigns for digital and print. Contributed from concept to final execution, collaborating with teams across image, space, beauty, and styling. Image-making centred on the house's classics, highlighting craft, heritage, and core codes through a contemporary lens.
+      </p>
+      <div class="grid-full">
+        <img src="burberry-1.jpeg" alt="Burberry S/S 2018 Campaign" />
+      </div>
+      <div class="grid-2">
+        <div class="grid-cell"><img src="burberry-2.jpeg" alt="Burberry S/S 2017" /></div>
+        <div class="grid-cell"><img src="burberry-3.jpeg" alt="Burberry Show Spaces" /></div>
+      </div>
+    </div>
+
+    <!-- 04 · Stella McCartney -->
+    <div class="project" id="stella-mccartney">
+      <div class="project-meta">
+        <span class="project-number">04</span>
+        <span class="project-subtitle">Art Direction &amp; Photography, S/S 2021</span>
+      </div>
+      <h3 class="project-title">Stella McCartney Kidswear</h3>
+      <p class="project-desc">
+        Created and led a global campaign with the dual role of Art Director and Photographer. Responding to the constraints of 2020, shaped a visual narrative grounded in the brand's codes while authentically engaging the world of children. Oversaw the campaign end-to-end, spanning art direction, casting, set design, and photography.
+      </p>
+      <div class="grid-2">
+        <div class="grid-cell"><img src="stella-1.jpeg" alt="Stella McCartney Kidswear S/S 2021" /></div>
+        <div class="grid-cell"><img src="stella-2.jpeg" alt="Stella McCartney Kidswear Campaign" /></div>
+      </div>
+      <div class="grid-full">
+        <img src="stella-3.jpeg" alt="Stella McCartney Kidswear" />
+      </div>
+    </div>
+
+    <!-- 05 · Production & Design Direction -->
+    <div class="project" id="production">
+      <div class="project-meta">
+        <span class="project-number">05</span>
+        <span class="project-subtitle">Production &amp; Design Direction, 2016–2017</span>
+      </div>
+      <h3 class="project-title">JW Anderson &nbsp;/&nbsp; Loewe &nbsp;/&nbsp; Gucci</h3>
+      <p class="project-desc">
+        Produced print, motion, and event campaigns for luxury brands and publications, with a focus on Loewe and JW Anderson (S/S 16–F/W 17). Oversaw main campaigns, ready-to-wear shows in London and Paris, and accompanying lookbooks, collaborating closely with brand and creative teams throughout.
+      </p>
+      <div class="grid-full">
+        <img src="production-1.jpeg" alt="JW Anderson / Loewe Production" />
+      </div>
+      <div class="grid-2">
+        <div class="grid-cell wide"><img src="production-2.jpeg" alt="Loewe S/S RTW Womens 2017" /></div>
+        <div class="grid-cell wide"><img src="production-3.jpeg" alt="Gucci 2016 Timepieces" /></div>
+      </div>
+    </div>
+
+    <!-- 06 · On Going Home -->
+    <div class="project" id="personal">
+      <div class="project-meta">
+        <span class="project-number">06</span>
+        <span class="project-subtitle">Personal Work &nbsp;·&nbsp; Photography &amp; Book Design</span>
+      </div>
+      <h3 class="project-title">On Going Home</h3>
+      <p class="project-desc">
+        A personal, ongoing decade-long visual study of family and home. Staged portraits of immediate and extended family across Canada and India. Served as Art Director, Photographer, Set Designer, Stylist, Graphic and Book Designer, and Producer — culminating in an exhibition and self-published book with an experiential setlist.
+      </p>
+      <div class="grid-full">
+        <img src="home-1.jpeg" alt="On Going Home — New Delhi, India 2018" />
+      </div>
+      <div class="grid-2">
+        <div class="grid-cell"><img src="home-2.jpeg" alt="On Going Home" /></div>
+        <div class="grid-cell"><img src="home-3.jpeg" alt="On Going Home — Book Design" /></div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-label">
+      <span class="section-label">About</span>
+      <h2>Through my work I determine and create the visual language to communicate a message, story, and point of view.</h2>
+    </div>
+    <div class="about-body">
+      <p>
+        My name is Sahil Babbar. Armed with a BA in Communications from Central Saint Martins, University of the Arts London, I work across art direction, photography, and creative direction — spanning fashion, luxury beauty, and editorial.
+      </p>
+      <p>
+        My practice spans the full arc of creative production: from brand identity and campaign concepting to on-set direction and final delivery across every touchpoint. I build visual systems that are both rigorous in concept and precise in execution.
+      </p>
+      <p>
+        Featured in the British Journal of Photography 'Ones to Watch' and Wallpaper Magazine 'NEW GEN'.
+      </p>
+      <div class="cv-list">
+        <div class="cv-item"><span class="role">Art Director — Charlotte Tilbury</span><span class="year">2024–Present</span></div>
+        <div class="cv-item"><span class="role">Senior Designer — Poppins Design Agency</span><span class="year">2024</span></div>
+        <div class="cv-item"><span class="role">Art Director — ITOH Menswear</span><span class="year">2023–2024</span></div>
+        <div class="cv-item"><span class="role">Assistant Director — Toronto Int'l Film Festival</span><span class="year">2018–2019</span></div>
+        <div class="cv-item"><span class="role">Assistant Art Director — Burberry HQ</span><span class="year">2016–2018</span></div>
+        <div class="cv-item"><span class="role">BA, Communications &amp; Promotion — Central Saint Martins</span><span class="year">2018</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER / CONTACT -->
+  <footer id="contact">
+    <div class="contact-block">
+      <h3>Get in touch</h3>
+      <a href="mailto:babbarahil073@gmail.com">babbarahil073@gmail.com</a>
+      <a href="https://instagram.com/sahilbabbar07" target="_blank">@sahilbabbar07</a>
+    </div>
+    <p class="footer-name">Sahil Babbar &copy; 2026</p>
+  </footer>
+
+</body>
+</html>
